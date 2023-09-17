@@ -4,10 +4,15 @@ import { deleteContact } from 'redux/contactSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.items);
+  const value = useSelector(state => state.filter.value);
   const dispatch = useDispatch();
+
+  const realItemContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(value.toLowerCase().trim())
+  );
   return (
     <ul className={css.list}>
-      {contacts.map(({ id, name, number }) => (
+      {realItemContacts.map(({ id, name, number }) => (
         <li className={css.itrm} key={id}>
           <p className={css.name}>
             {name}: {number}
