@@ -3,7 +3,7 @@ import css from './Filter.module.css';
 import { setFilter } from 'redux/filterSlice';
 
 export const Filter = () => {
-  const value = useSelector(state => state.contacts.filter);
+  const value = useSelector(state => state.filter.value);
   const dispatch = useDispatch();
 
   return (
