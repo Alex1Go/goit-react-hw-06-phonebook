@@ -13,7 +13,7 @@ export const Filter = () => {
         className={css.input}
         type="text"
         value={value}
-        onChange={() => dispatch(setFilter)}
+        onChange={event => dispatch(setFilter(event.target.value))}
       />
     </label>
   );
